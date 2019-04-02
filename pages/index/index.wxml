@@ -1,0 +1,17 @@
+
+<discover wx:if="{{PageCur=='discover'}}"></discover>
+<about wx:if="{{PageCur=='about'}}"></about>
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action {{PageCur=='discover'?'text-green':'text-gray'}}" bindtap="NavChange" data-cur="discover">
+    <view class='icon-cu-image'>
+      <text class="icon-favor{{PageCur=='discover'?'fill':''}}"></text>
+    </view>
+    <view>发现</view>
+  </view>
+  <view class="action {{PageCur=='about'?'text-green':'text-gray'}}" bindtap="NavChange" data-cur="about">
+    <view class='icon-cu-image'>
+      <text class="icon-my{{PageCur=='about'?'fill':''}}"></text>
+    </view>
+    <view>我</view>
+  </view>
+</view>

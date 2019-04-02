@@ -1,0 +1,39 @@
+<!--pages/about/about/about.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">关于WeCompetition</view>
+</cu-custom>
+
+<view class='margin-lg bg-white padding-xl shadow-lg radius'>
+  <view class='text-center margin-bottom text-lg text-grey'>关于 WeCompetition</view>
+  <view class='text-content'>
+    <view>这里应该有很多简介</view>
+  </view>
+</view>
+
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+  <view class="cu-item arrow">
+    <view class="content" bindtap="goLink" data-link="https://github.com/AnxQ/wx_competition_app">
+      <text class="icon-github text-grey"></text>
+      <text class="text-grey">GitHub 后端</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <view class="content" bindtap="goLink" data-link="https://github.com/AnxQ/wx_competition_front">
+      <text class="icon-github text-grey"></text>
+      <text class="text-grey">GitHub 前端</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <view class="content" bindtap="goLink" data-link="https://github.com/weilanwl/ColorUI">
+      <image src="https://raw.githubusercontent.com/weilanwl/ColorUI/master/demo/images/logo.png" class="ico" mode="aspectFit"></image>
+      <text class="text-grey">前端样式库 ColorUI</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <view class="content" bindtap="goLink" data-link="https://www.tornadoweb.org/en/stable/">
+      <image src="https://www.tornadoweb.org/en/stable/_static/favicon.ico" class="ico" mode="center"></image>
+      <text class="text-grey">后端框架 Tornado</text>
+    </view>
+  </view>
+</view>

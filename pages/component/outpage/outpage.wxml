@@ -1,0 +1,6 @@
+<!--pages/component/outpage/outpage.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+</cu-custom>
+<!--由于个人号的原因 无法打开非业务域名 不然可以用这个骚方法打开任何链接 (如果有链接过滤可以Base64编个码)...-->
+<web-view src="https://app.zhangxinchao.top/service/proxy?link={{currentLink}}"></web-view>

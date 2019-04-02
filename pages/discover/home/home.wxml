@@ -1,0 +1,2 @@
+<!--pages/discover/home/home.wxml-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{false}}"><view slot="content">发现</view></cu-custom>

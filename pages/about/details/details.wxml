@@ -1,0 +1,80 @@
+<!--pages/about/details/details.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">详细信息</view>
+</cu-custom>
+<form bindsubmit='formSubmit'>
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="icon-title text-orange "></text>信息修改
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">姓名</view>
+    <input name="name" placeholder="{{userDetails.name?userDetails.name:'提交后将不可修改'}}" disabled="{{userDetails.name}}"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">所在院校</view>
+    <input name="school" placeholder="{{userDetails.school}}"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">学号</view>
+    <input name="school_num" placeholder="{{userDetails.school_num}}"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">在校身份</view>
+    <picker bindchange="RolePickerChange" value="{{roleIndex}}" range="{{rolePicker}}">
+      <view class="picker text-grey">
+        {{roleIndex!=null?rolePicker[roleIndex]:'选择...'}}
+      </view>
+    </picker>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">性别</view>
+    <picker bindchange="GenderPickerChange" value="{{genderIndex}}" range="{{genderPicker}}">
+      <view class="picker text-grey">
+        {{genderIndex!=null?genderPicker[genderIndex]:'选择...'}}
+      </view>
+    </picker>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">电话</view>
+    <input name="tel" type="number" placeholder="{{userDetails.tel}}"></input>
+    <view class="cu-capsule radius">
+        <view class="cu-tag bg-blue">
+          +86
+        </view>
+        <view class="cu-tag line-blue">
+          中国大陆
+        </view>
+      </view>
+  </view>
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="icon-title text-orange "></text>设置
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">隐藏性别</view>
+    <switch name="hide_gender" checked="{{userDetails.settings.hide_gender}}"></switch>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">隐藏真实姓名，以WeChat昵称代替</view>
+    <switch name="hide_name" checked="{{userDetails.settings.hide_name}}"></switch>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">隐藏学号</view>
+    <switch name="hide_school_num" checked="{{userDetails.settings.hide_school_num}}"></switch>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">允许被邀请入队</view>
+    <switch name="allow_bejoin" checked="{{userDetails.settings.allow_bejoin}}"></switch>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">允许被查找</view>
+    <switch name="allow_find" checked="{{userDetails.settings.allow_find}}"></switch>
+  </view>
+  <view class="padding flex flex-direction">
+    <button formType="submit" class="cu-btn bg-blue margin-tb-sm lg">提交</button>
+  </view>
+</form>
