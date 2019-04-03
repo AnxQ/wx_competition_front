@@ -11,7 +11,7 @@ Component({
     visitTotal: 0,
     userDetails: {}
   },
-  
+
   attached() {
     this.setData({
       userInfo: app.globalData.userInfo,

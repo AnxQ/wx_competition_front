@@ -1,0 +1,49 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}"><view slot="content">{{title}}</view></cu-custom>
+<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item">
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </view>
+  </swiper-item>
+</swiper>
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{2}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+    {{navlist[index]}}
+    </view>
+  </view>
+</scroll-view>
+<view wx:if="{{TabCur==0}}">
+  <view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="text-grey">竞赛详情：</text>
+        <view class='margin-bottom text-lg '>{{detail}}</view>
+        <view class='text-content'>
+</view>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="text-grey">报名截至时间：</text>
+        <view>{{deadline}}</view>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="text-grey">竞赛开始时间：</text>
+        <view>{{startdate}}</view>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="text-grey">竞赛地点:</text>
+        <view>{{locate}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{TabCur==1}}">
+eee
+</view>
