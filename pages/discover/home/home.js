@@ -1,23 +1,18 @@
 // pages/discover/home/home.js
+const app = getApp();
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-
+  options: {
+    addGlobalClass: true,
   },
-
-  /**
-   * 组件的初始数据
-   */
-  data: {
-    
-  },
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-
+  data:{
+    imag:"https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg",
+    portrait:"https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg",
+    status:"报名中",
+    textcut:"NAN",
+    date:"2019-4-3",
+    author:"NJAU",
+    views:"9999",
+    likes:"999",
+    comments:"99",
   }
 })

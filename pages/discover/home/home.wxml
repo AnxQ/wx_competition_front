@@ -1,2 +1,31 @@
 <!--pages/discover/home/home.wxml-->
 <cu-custom bgColor="bg-gradual-pink" isBack="{{false}}"><view slot="content">发现</view></cu-custom>
+<view class="cu-card case {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="image">
+      <navigator class="content" url="/pages/discover/details/details" hover-class="none">
+        <image src="{{imag}}" mode="widthFix"></image>
+      </navigator>
+      <view class="cu-tag bg-blue">{{status}}</view>
+      <view class="cu-bar bg-shadeBottom">
+        <text class="text-cut">{{textcut}}</text>
+      </view>
+    </view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url({{portrait}});"></view>
+        <view class="content flex-sub">
+          <view class="text-grey">{{author}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            {{date}}
+            <view class="text-gray text-sm">
+              <text class="icon-attentionfill margin-lr-xs"></text> {{views}}
+              <text class="icon-appreciatefill margin-lr-xs"></text> {{likes}}
+              <text class="icon-messagefill margin-lr-xs"></text> {{comments}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

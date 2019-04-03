@@ -5,7 +5,8 @@
     "pages/discover/home/home",
     "pages/about/details/details",
     "pages/about/about/about",
-    "pages/component/outpage/outpage"
+    "pages/component/outpage/outpage",
+    "pages/discover/details/details"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,5 +17,6 @@
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
+
   }
 }
