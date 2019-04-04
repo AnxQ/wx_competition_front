@@ -9,6 +9,10 @@ const formatTime = date => {
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
+const formatTimestamp = timestamp => {
+  return new Date(timestamp*1000);
+}
+ 
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
@@ -42,5 +46,6 @@ const goLink = link => {
 
 module.exports = {
   formatTime: formatTime,
+  formatTimestamp: formatTimestamp,
   goLink: goLink
 }

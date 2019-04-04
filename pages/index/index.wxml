@@ -1,5 +1,41 @@
-
-<discover wx:if="{{PageCur=='discover'}}"></discover>
+<view wx:if="{{PageCur=='discover'}}">
+<cu-custom bgColor="bg-gradual-pink" isBack="{{false}}"><view slot="content">发现</view></cu-custom>
+<view class="cu-bar search bg-white fixed" style="top:{{CustomBar}}px">
+  <!-- <form bindsubmit="searchSubmit"> -->
+    <view class="search-form round">
+      <text class="icon-search"></text>
+      <input type="text" placeholder="搜索比赛" confirm-type="search"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow-blur round">搜索</button>
+      <button class="cu-btn bg-green shadow-blur round margin-left">分类</button>
+    </view>
+  <!-- </form> -->
+</view>
+<view style="padding-top: 130rpx; padding-bottom: 100rpx">
+  <view wx:for="{{compList}}" class="cu-card case">
+    <view class="cu-item shadow" style='margin-top: 5rpx'>
+      <navigator class="content" url="/pages/discover/details/details?id={{item.id}}" hover-class="none">
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+            <view class="cu-avatar round lg" style="background-image:url({{portrait}});"></view>
+            <view class="content flex-sub">
+              <view class="text-grey">{{item.name}}</view>
+              <view class="text-gray text-sm flex justify-between">
+                报名截止: {{item.time_close}}
+                <view class="text-gray text-sm">
+                  <text class="icon-attentionfill margin-lr-xs"></text> {{item.watched_count}}
+                  <text class="icon-group_fill margin-lr-xs"></text> {{item.participate_count}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        </navigator>
+    </view>
+  </view>
+</view>
+</view>
 <about wx:if="{{PageCur=='about'}}"></about>
 <view class="cu-bar tabbar bg-white shadow foot">
   <view class="action {{PageCur=='discover'?'text-green':'text-gray'}}" bindtap="NavChange" data-cur="discover">

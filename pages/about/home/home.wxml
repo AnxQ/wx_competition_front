@@ -7,7 +7,9 @@
       </view>
       <view class="flex-twice padding-lg margin-xs radius">
         <view class="margin-top-sm">
-          <text class="text-xl text-bold text-name">{{userDetails.name}}</text>
+          <navigator url="/pages/about/details/details">
+            <text class="text-xl text-bold text-name">{{userDetails.name?userDetails.name:"完善信息"}}</text>
+          </navigator>
         </view>
         <view class="margin-top-sm">
           <text class="text-lg">{{userDetails.school}}</text>
@@ -21,12 +23,12 @@
   </view>
   <view class="padding flex text-center text-grey bg-white shadow-warp">
     <view class="flex flex-sub flex-direction solid-right">
-      <view class="text-xxl text-orange">{{forksCount}}</view>
+      <view class="text-xxl text-orange">{{userStatus.group}}</view>
       <view class="margin-top-sm">
         <text class="icon-group_fill"></text> 组队</view>
     </view>
     <view class="flex flex-sub flex-direction">
-      <view class="text-xxl text-green">{{forksCount}}</view>
+      <view class="text-xxl text-green">{{userStatus.notify}}</view>
       <view class="margin-top-sm">
         <text class="icon-communityfill"></text> 通知</view>
     </view>

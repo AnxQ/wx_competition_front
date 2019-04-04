@@ -6,23 +6,25 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     userDetails: app.globalData.userDetails,
+
     detailsChanged: false,
     genderPicker: ['男', '女'],
     genderIndex: null,
     rolePicker: ['其他', '教师', '学生'],
-    roleIndex: null
+    roleIndex: null,
+    enableBack: true
   },
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    this.setData({ enableBack: options.enableBack == null ? true: options.enableBack == 1});
+  },
   onReady: function () {},
   onShow: function () {
     // 鉴于Page将先于request被加载
     this.setData({
       userDetails: app.globalData.userDetails,
-      genderIndex: app.globalData.userDetails.gender,
-      roleIndex: app.globalData.userDetails.role
+      genderIndex: app.globalData.userDetails.gender ? app.globalData.userDetails.gender:null,
+      roleIndex: app.globalData.userDetails.role ? app.globalData.userDetails.gender : null
     })
-
-
   },
   GenderPickerChange(e) {
     this.setData({
@@ -50,7 +52,7 @@ Page({
     stagingData.gender = this.data.genderIndex;
     authreq.authPost("user", res => {
       if(res.result == "success") {
-        wx.showToast({ title: '修改成功', duration: 1000, complete: wx.navigateBack() });
+        wx.showToast({ title: '修改成功', duration: 1000, complete: wx.navigateTo("/pages/") });
         app.globalData.userDetails = stagingData;
       }
       else

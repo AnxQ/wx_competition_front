@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/about/home/home",
-    "pages/discover/home/home",
     "pages/about/details/details",
     "pages/about/about/about",
     "pages/component/outpage/outpage",

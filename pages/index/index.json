@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "discover": "/pages/discover/home/home",
     "about": "/pages/about/home/home"
   }
 }

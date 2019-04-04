@@ -9,7 +9,11 @@ Component({
     starCount: 0,
     forksCount: 0,
     visitTotal: 0,
-    userDetails: {}
+    userDetails: {},
+    userStatus: {
+      group: 0,
+      notify: 0
+    },
   },
 
   attached() {
@@ -21,15 +25,6 @@ Component({
     wx.hideLoading()
   },
   methods: {
-    coutNum(e) {
-      if (e > 1000 && e < 10000) {
-        e = (e / 1000).toFixed(1) + 'k'
-      }
-      if (e > 10000) {
-        e = (e / 10000).toFixed(1) + 'W'
-      }
-      return e
-    },
     CopyLink(e) {
       wx.setClipboardData({
         data: e.currentTarget.dataset.link,

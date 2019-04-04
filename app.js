@@ -4,6 +4,68 @@ App({
   globalData: {
     userInfo: null,
     userDetails: null,
+    ColorList: [{
+        name: 'red',
+      },
+      {
+        name: 'orange'
+      },
+      {
+        name: 'yellow',
+      },
+      {
+        name: 'olive',
+      },
+      {
+        name: 'green',
+      },
+      {
+        name: 'cyan',
+      },
+      {
+        name: 'blue',
+      },
+      {
+        name: 'purple',
+      },
+      {
+        name: 'mauve',
+      },
+      {
+        name: 'pink',
+      },
+      {
+        name: 'brown',
+      },
+      {
+        name: 'grey',
+      }
+    ],
+    StatusList: [{
+      name: "等待报名开始",
+      color: "bg-green light"
+    },
+    {
+      name: "报名中",
+      color: "bg-gradual-red"
+    },
+    {
+      name: "报名截止",
+      color: "bg-blue"
+    },
+    {
+      name: "进行中",
+      color: "bg-gradual-orange"
+    },
+    {
+      name: "已结束",
+      color: "bg-grey light"
+    },
+    {
+      name: "结果发布",
+      color: "bg-gradual-pink"
+    },
+    ],
   },
   onLaunch: function() {
     // 展示本地存储能力
@@ -15,7 +77,7 @@ App({
     wx.login({
       success: res => {
         wx.request({
-          url: authreq.serverUrl+'auth',
+          url: authreq.serverUrl + 'auth',
           data: {
             code: res.code
           },
@@ -61,5 +123,4 @@ App({
       }
     })
   },
-
 })

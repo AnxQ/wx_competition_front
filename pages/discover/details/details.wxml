@@ -1,49 +1,90 @@
 <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}"><view slot="content">{{title}}</view></cu-custom>
-<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+<!-- 后续可能有加入图片介绍的需求，暂时保留该内容
+ <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
   <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
     <view class="swiper-item">
       <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
       <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
     </view>
   </swiper-item>
-</swiper>
-<scroll-view scroll-x class="bg-white nav">
+</swiper> -->
+<view style="padding-bottom: 100rpx">
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action">
+    <text class="icon-titles text-blue"></text> {{compDetails.info.name}}
+  </view>
+  <view class="cu-tag radius margin-right {{statusList[compDetails.status].color}}">
+    {{statusList[compDetails.status].name}}
+  </view>
+</view>
+<view class="cu-list menu sm-border card-menu margin-top">
+  <view class="cu-item">
+    <view class="content">
+      <text class="icon-infofill text-grey"></text>
+      <text class="text-grey">简介</text>
+    </view>
+  </view>
+  <view class="padding-lg bg-white solid-bottom">
+    <view wx:for="{{compDetails.info.description}}" wx:key class="{{index==0?'':'margin-top-sm'}}">{{item}}</view>
+  </view>
+  <view class="cu-item">
+    <view class="content">
+      <text class="icon-tagfill text-grey"></text>
+      <text class="text-grey">标签</text>
+    </view>
+  </view>
+  <view class="padding-lg bg-white flex flex-wrap">
+    <view class="padding-xs" wx:for="{{compDetails.tags}}" wx:key="{{item.id}}">
+      <view class="cu-tag round bg-{{ColorList[item.id%12].name}}">{{item.name}}</view>
+    </view>
+  </view>
+</view>
+<scroll-view scroll-x class="bg-white nav margin-top">
   <view class="flex text-center">
-    <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{2}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+    <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{navlist}}" wx:key bindtap="tabSelect" data-id="{{index}}">
     {{navlist[index]}}
     </view>
   </view>
 </scroll-view>
 <view wx:if="{{TabCur==0}}">
-  <view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
-    <view class="cu-item {{menuArrow?'arrow':''}}">
-      <view class="content">
-        <text class="text-grey">竞赛详情：</text>
-        <view class='margin-bottom text-lg '>{{detail}}</view>
-        <view class='text-content'>
-</view>
+  <view class="cu-list menu sm-border {{menuCard?'card-menu margin-top':''}}">
+    <view class="cu-item">
+      <view class="content margin-top margin-bottom">
+        <text class="icon-moneybagfill text-grey"/>
+        <text class="text-grey">报名费用</text>
+        <text class='text-price margin-left'>{{compDetails.info.fee}}</text>
       </view>
     </view>
-    <view class="cu-item {{menuArrow?'arrow':''}}">
-      <view class="content">
-        <text class="text-grey">报名截至时间：</text>
-        <view>{{deadline}}</view>
+    <view class="cu-item">
+      <view class="content margin-top margin-bottom">
+        <text class="icon-newsfill text-grey"/>
+        <text class="text-grey">证书级别</text>
+        <text class="text margin-left">{{compDetails.info.reward.certificate_level}}</text>
       </view>
     </view>
-    <view class="cu-item {{menuArrow?'arrow':''}}">
-      <view class="content">
-        <text class="text-grey">竞赛开始时间：</text>
-        <view>{{startdate}}</view>
-      </view>
-    </view>
-    <view class="cu-item {{menuArrow?'arrow':''}}">
-      <view class="content">
-        <text class="text-grey">竞赛地点:</text>
-        <view>{{locate}}</view>
+    <view class="cu-item">
+      <view class="content margin-top margin-bottom">
+        <text class="icon-upstagefill text-grey"/>
+        <text class="text-grey">设立奖项</text>
+        <view class="margin-left margin-top">
+          <view class="margin-left" wx:for="{{compDetails.info.reward.levels}}" wx:key>
+            <text class="icon-upstage text-grey margin-right"/>
+            <text class="text-grey">{{item.level}} * {{item.count}}</text>
+            <text class="text margin-left text-price">{{item.bonus}}</text>
+          </view>
+        </view>
       </view>
     </view>
   </view>
 </view>
 <view wx:if="{{TabCur==1}}">
-eee
+  <view class="cu-timeline padding-left padding-right">
+    <view wx:for="{{timeList}}" wx:key class="cu-item icon-{{item.icon}} {{item.icon == 'timefill'?'': 'cur ' + (index == currentStep?'text-green':(index > currentStep?'text-blue': 'text-gray'))}}">
+      <view wx:if="{{item.icon != 'timefill'}}" class="content {{index == currentStep?'bg-green':(index > currentStep?'bg-blue': 'bg-gray')}} shadow-blur">
+        <text>{{item.time}}</text> {{item.name}}
+      </view>
+      <view wx:else>现在</view>
+    </view>
+  </view>
+</view>
 </view>
