@@ -7,7 +7,7 @@
 <view class='margin-lg bg-white padding-xl shadow-lg radius'>
   <view class='text-center margin-bottom text-lg text-grey'>关于 WeCompetition</view>
   <view class='text-content'>
-    <view>这里应该有很多简介</view>
+    <view>这是一个亟待进一步完成的竞赛信息整合/报名小程序。</view>
   </view>
 </view>
 

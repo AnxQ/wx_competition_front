@@ -22,8 +22,8 @@ Page({
     // 鉴于Page将先于request被加载
     this.setData({
       userDetails: app.globalData.userDetails,
-      genderIndex: app.globalData.userDetails.gender ? app.globalData.userDetails.gender:null,
-      roleIndex: app.globalData.userDetails.role ? app.globalData.userDetails.gender : null
+      genderIndex: app.globalData.userDetails.gender != null ? app.globalData.userDetails.gender:null,
+      roleIndex: app.globalData.userDetails.role != null ? app.globalData.userDetails.gender : null
     })
   },
   GenderPickerChange(e) {
@@ -52,7 +52,7 @@ Page({
     stagingData.gender = this.data.genderIndex;
     authreq.authPost("user", res => {
       if(res.result == "success") {
-        wx.showToast({ title: '修改成功', duration: 1000, complete: wx.navigateTo("/pages/") });
+        wx.showToast({ title: '修改成功', duration: 1000, complete: () => wx.navigateBack() });
         app.globalData.userDetails = stagingData;
       }
       else

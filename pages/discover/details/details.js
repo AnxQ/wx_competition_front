@@ -100,12 +100,11 @@ Page({
   },
   onLoad(options) {
     var compId = options.id;
-    if (compId)
-      var res = authreq.authGet("comp?id=compId");
-    if (res)
-      this.setData({
+    if (compId){
+      var res = authreq.authGet("comp?id=" + compId, (res) => this.setData({
         compDetails: res
-      });
+      }));
+    }
     var now = Date.now();
     var i = 0;
     if (this.data.compDetails.time_queue[i] > now)

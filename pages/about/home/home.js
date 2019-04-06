@@ -10,6 +10,7 @@ Component({
     forksCount: 0,
     visitTotal: 0,
     userDetails: {},
+    userInfo:{},
     userStatus: {
       group: 0,
       notify: 0
@@ -17,6 +18,10 @@ Component({
   },
 
   attached() {
+    authreq.authGet("user", res => {
+      if (res)
+        app.globalData.userDetails = res;
+    });
     this.setData({
       userInfo: app.globalData.userInfo,
       userDetails: app.globalData.userDetails,
